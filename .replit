@@ -1,0 +1,20 @@
+modules = ["nodejs-20", "web"]
+run = "BROWSER=none WDS_SOCKET_PORT=0 vite --port 3000"
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "BROWSER=none WDS_SOCKET_PORT=0 vite --port 3000"]
+
+[[ports]]
+localPort = 3000
+externalPort = 3000
+exposeLocalhost = true
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[auth]
+pageEnabled = false
+buttonEnabled = false
